@@ -1,0 +1,413 @@
+/* ==========================================================================
+   SweetSpot - Components Stylesheet
+   (Buttons, Tabs, Stat Blocks, Thread Bars, Chart Panel, Event Log)
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Buttons & Stepper
+   ========================================================================== */
+.btn {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-ink);
+  background-color: var(--color-paper);
+  border: var(--border-ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-hard);
+  padding: 8px 14px;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.btn:hover:not(:disabled) {
+  background-color: #ECE7DC;
+}
+
+.btn:active:not(:disabled) {
+  transform: translate(3px, 3px);
+  box-shadow: var(--shadow-pressed);
+}
+
+.btn:disabled {
+  background-color: var(--color-grey);
+  color: #6E685F;
+  border-color: #8C8578;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Primary Signal Orange Accent Button */
+.btn-primary {
+  background-color: var(--color-orange);
+  color: var(--color-ink);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #FF4A05;
+}
+
+/* Stop Button Accent */
+.btn-danger {
+  background-color: var(--color-paper);
+  border-color: var(--color-ink);
+}
+
+.btn-danger:not(:disabled):hover {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+}
+
+/* Stepper Component */
+.stepper-group {
+  display: inline-flex;
+  align-items: center;
+  border: var(--border-ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-hard);
+  background-color: var(--color-paper);
+  overflow: hidden;
+}
+
+.btn-stepper {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--color-ink);
+  background-color: var(--color-paper);
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+}
+
+.btn-stepper:hover {
+  background-color: var(--color-orange);
+}
+
+.btn-stepper:active {
+  background-color: #FF4A05;
+}
+
+.stepper-display {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-left: var(--border-ink);
+  border-right: var(--border-ink);
+  min-width: 90px;
+  text-align: center;
+  background-color: var(--color-paper);
+}
+
+/* Max Threads Selector */
+.select-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.custom-select {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-ink);
+  background-color: var(--color-paper);
+  border: var(--border-ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-hard);
+  padding: 6px 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.custom-select:disabled {
+  background-color: var(--color-grey);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   2. Workload Tabs
+   ========================================================================== */
+.tab-btn {
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: -0.3px;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  background-color: var(--color-paper);
+  border: var(--border-ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-hard);
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+}
+
+.tab-btn:hover:not(.tab-active) {
+  background-color: #ECE7DC;
+}
+
+.tab-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: var(--shadow-pressed);
+}
+
+.tab-btn.tab-active {
+  background-color: var(--color-orange);
+  color: var(--color-ink);
+}
+
+/* ==========================================================================
+   3. Stat Blocks
+   ========================================================================== */
+.stat-card {
+  background-color: var(--color-paper);
+  border: var(--border-ink);
+  box-shadow: var(--shadow-hard);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-ink);
+  margin-bottom: 2px;
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 3.2vw, 44px);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--color-ink);
+  letter-spacing: -1px;
+}
+
+.stat-value.highlight-orange {
+  color: var(--color-orange);
+}
+
+.cpu-cores-note {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: #6E685F;
+  text-transform: uppercase;
+  padding: 4px 6px;
+  border-left: 2px solid var(--color-grey);
+}
+
+/* ==========================================================================
+   4. Thread Bars (Worker Pool Column)
+   ========================================================================== */
+.thread-bars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+  gap: 10px;
+  align-items: stretch;
+  flex: 1;
+  min-height: 220px;
+  padding: 10px 0;
+}
+
+.thread-bar-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.thread-bar-fill {
+  width: 100%;
+  flex: 1;
+  min-height: 160px;
+  border: var(--border-ink);
+  border-radius: var(--radius);
+  transition: background-color 0.1s ease, border-color 0.1s ease;
+  position: relative;
+}
+
+/* Bar Status States */
+/* 1. RUNNING: Filled Ink */
+.bar-running {
+  background-color: var(--color-ink);
+}
+
+/* 2. IDLE: Outlined Paper */
+.bar-idle {
+  background-color: var(--color-paper);
+}
+
+/* 3. PARKED: Hatched light grey diagonal stripes */
+.bar-parked {
+  background-color: var(--color-paper);
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--color-grey),
+    var(--color-grey) 4px,
+    var(--color-paper) 4px,
+    var(--color-paper) 8px
+  );
+  border-color: #8C8578;
+}
+
+/* 4. WAITING_LOCK: Mutex queue indicator */
+.bar-waiting_lock {
+  background-color: var(--color-paper);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--color-orange),
+    var(--color-orange) 4px,
+    var(--color-paper) 4px,
+    var(--color-paper) 8px
+  );
+}
+
+/* 5. CRITICAL_SECTION: Solid Signal Orange */
+.bar-critical_section {
+  background-color: var(--color-orange);
+}
+
+.thread-bar-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  margin-top: 6px;
+  color: var(--color-ink);
+}
+
+.thread-bar-tag {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-ink);
+  margin-top: 2px;
+}
+
+.thread-bars-legend {
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1.5px solid var(--color-grey);
+  font-size: 11px;
+  font-weight: 700;
+  flex-wrap: wrap;
+}
+
+.legend-swatch-box {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--color-ink);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.swatch-running {
+  background-color: var(--color-ink);
+}
+
+.swatch-idle {
+  background-color: var(--color-paper);
+}
+
+.swatch-parked {
+  background-color: var(--color-paper);
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--color-grey),
+    var(--color-grey) 3px,
+    var(--color-paper) 3px,
+    var(--color-paper) 6px
+  );
+}
+
+.swatch-critical {
+  background-color: var(--color-orange);
+}
+
+/* ==========================================================================
+   5. OS Event Log Column
+   ========================================================================== */
+.log-console {
+  background-color: var(--color-paper);
+  border: var(--border-ink);
+  border-radius: var(--radius);
+  padding: 12px;
+  flex: 1;
+  max-height: 250px;
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.55;
+  color: var(--color-ink);
+}
+
+.log-line {
+  margin-bottom: 4px;
+  word-break: break-word;
+}
+
+.log-time {
+  color: #6E685F;
+  font-weight: 400;
+}
+
+.log-tag {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+
+.log-tag.tag-thread-pool {
+  color: var(--color-ink);
+  text-decoration: underline;
+}
+
+.log-tag.tag-scalability {
+  color: var(--color-orange);
+}
+
+.log-tag.tag-mutex,
+.log-tag.tag-critical-section {
+  color: var(--color-orange);
+  background-color: #ECE7DC;
+  padding: 0 2px;
+}
+
+.log-tag.tag-context-switch {
+  color: var(--color-orange);
+  font-weight: 800;
+}
+
+.log-tag.tag-producer-consumer {
+  color: #6E685F;
+}
+
+.log-msg {
+  color: var(--color-ink);
+}

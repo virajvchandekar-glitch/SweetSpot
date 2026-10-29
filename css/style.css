@@ -1,0 +1,302 @@
+/* ==========================================================================
+   SweetSpot - Base Styles & Layout
+   Palette strictly limited to:
+   - Paper: #F4F1EA
+   - Ink: #14110F
+   - Signal Orange: #FF5B1F
+   - Light Grey: #D9D4C7
+   Neo-brutalist / Editorial Poster Layout
+   ========================================================================== */
+
+:root {
+  --color-paper: #F4F1EA;
+  --color-ink: #14110F;
+  --color-orange: #FF5B1F;
+  --color-grey: #D9D4C7;
+
+  --border-ink: 2.5px solid var(--color-ink);
+  --shadow-hard: 5px 5px 0 var(--color-ink);
+  --shadow-pressed: 2px 2px 0 var(--color-ink);
+  --radius: 4px;
+
+  --font-display: 'Archivo Black', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', Consolas, Monaco, monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+  padding: 24px 32px 48px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Outer Container */
+.app-container {
+  max-width: 1380px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ==========================================================================
+   1. Header Section (Left-aligned, huge type, no centered hero)
+   ========================================================================== */
+.header-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-bottom: var(--border-ink);
+  padding-bottom: 16px;
+  margin-bottom: 4px;
+}
+
+.brand-title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 76px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+
+.brand-tagline {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  margin-top: 6px;
+}
+
+/* ==========================================================================
+   2. Hero Block: Chart on Left (2fr) + 4 Stacked Stat Blocks on Right (1fr)
+   ========================================================================== */
+.hero-block {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.chart-panel {
+  background-color: var(--color-paper);
+  border: var(--border-ink);
+  box-shadow: var(--shadow-hard);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 440px;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1.5px solid var(--color-grey);
+}
+
+.chart-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+
+.chart-legend {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-ink);
+  display: flex;
+  gap: 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-swatch {
+  width: 10px;
+  height: 10px;
+  border: 1.5px solid var(--color-ink);
+}
+
+.swatch-ink {
+  background-color: var(--color-ink);
+}
+
+.swatch-orange {
+  background-color: var(--color-orange);
+}
+
+.chart-canvas-wrapper {
+  flex: 1;
+  width: 100%;
+  position: relative;
+  min-height: 340px;
+}
+
+canvas#sweetspot-chart {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.stat-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   3. Control Strip (Horizontal bar under Hero)
+   ========================================================================== */
+.control-strip {
+  background-color: var(--color-paper);
+  border: var(--border-ink);
+  box-shadow: var(--shadow-hard);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.control-strip-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.workload-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.controls-cluster {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.control-strip-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1.5px solid var(--color-grey);
+  padding-top: 10px;
+  font-size: 12px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.workload-desc {
+  font-weight: 600;
+  color: var(--color-ink);
+  max-width: 700px;
+}
+
+.phase-banner {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  background-color: var(--color-paper);
+  border: 1.5px solid var(--color-ink);
+  padding: 4px 10px;
+  border-radius: var(--radius);
+}
+
+/* ==========================================================================
+   4. Lower Area in Two Columns (Thread Bars on Left, Event Log on Right)
+   ========================================================================== */
+.lower-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.column-panel {
+  background-color: var(--color-paper);
+  border: var(--border-ink);
+  box-shadow: var(--shadow-hard);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1.5px solid var(--color-grey);
+}
+
+.panel-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  letter-spacing: -0.5px;
+}
+
+.panel-subtitle {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-ink);
+  text-transform: uppercase;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .hero-block {
+    grid-template-columns: 1fr;
+  }
+  .stat-stack {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .lower-area {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 12px;
+  }
+  .stat-stack {
+    grid-template-columns: 1fr;
+  }
+  .control-strip-top {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
